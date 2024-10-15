@@ -98,10 +98,7 @@ where
 
     /// inserts a new node using self by value
     #[must_use]
-    pub fn into_insert(
-        self,
-        Insert { parent_id, id }: Insert<StateId<K>>,
-    ) -> Self {
+    pub fn into_insert(self, Insert { parent_id, id }: Insert<StateId<K>>) -> Self {
         // inserts at this point should be guaranteed Some(id)
         // ince a parent_id.is_none() should be handled by the node
         // store through a new graph creation
@@ -177,10 +174,7 @@ where
     }
 
     #[must_use]
-    pub fn into_update(
-        self,
-        Update { id, state }: Update<StateId<K>, K::State>,
-    ) -> Self {
+    pub fn into_update(self, Update { id, state }: Update<StateId<K>, K::State>) -> Self {
         self.zipper().by_id(id).set_state(state).finish_update()
     }
 }

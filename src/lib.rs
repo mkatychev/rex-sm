@@ -1,9 +1,8 @@
 #![allow(clippy::module_name_repetitions)]
 use std::fmt;
 
-use bigerror::reportable;
+use bigerror::ThinContext;
 use tokio::time::Instant;
-use tracing::error;
 use uuid::Uuid;
 
 pub mod builder;
@@ -138,7 +137,5 @@ impl<K: Kind> StateId<K> {
     }
 }
 
-#[derive(Debug, thiserror::Error)]
-#[error("StateMachineError")]
+#[derive(ThinContext)]
 pub struct RexError;
-reportable!(RexError);

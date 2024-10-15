@@ -468,8 +468,8 @@ mod tests {
             .send(Notification(TestMsg::TimeoutInput(cancel_timeout)))
             .unwrap();
 
-        // wait out the rest of the duration and 3 ticks
-        tokio::time::sleep(Duration::from_millis(3) + TEST_TICK_RATE * 2).await;
+        // wait out the rest of the duration and 4 ticks
+        tokio::time::sleep(Duration::from_millis(3) + TEST_TICK_RATE * 3).await;
 
         // we should not be getting any signal since the timeout was cancelled
         assert!(timeout_manager.signal_queue.pop_front().is_none());

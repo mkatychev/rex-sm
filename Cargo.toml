@@ -11,7 +11,7 @@ path = "src/lib.rs"
 
 [dependencies]
 async-trait = "0.1"
-bigerror = ">=0.8"
+bigerror = "0.9"
 bs58 = "0.5.1"
 dashmap = "5"
 derive_more = { version = "1", features = ["display"] }
@@ -27,3 +27,7 @@ uuid = { version = "1", features = ["v4"] }
 [dev-dependencies]
 tracing-test = "0.2"
 derive_more = { version = "1", features = ["display", "try_into", "try_from", "from"] }
+
+[lints.clippy]
+module_name_repetitions = "allow"
+
