@@ -1,9 +1,11 @@
 [package]
 name = "rex-sm"
-version = "0.7.0"
+version = "0.8.0"
 edition = "2021"
 description = "Hierarchical state machine"
+authors = ["Mikhail Katychev <mkatych@gmail.com>"]
 license = "MIT"
+repository = "https://github.com/mkatychev/rex-sm"
 
 [lib]
 name = "rex"
@@ -13,11 +15,11 @@ path = "src/lib.rs"
 async-trait = "0.1"
 bigerror = "0.9"
 bs58 = "0.5.1"
-dashmap = "5"
-derive_more = { version = "1", features = ["display"] }
+dashmap = "6"
+derive_more = { version = "2", features = ["display"] }
 futures = "0.3"
 parking_lot = "0.12"
-thiserror = "1"
+thiserror = "2"
 tokio = { version = "1", features = ["sync", "time", "rt", "macros"] }
 tokio-stream = "0.1"
 tracing = "0.1"
@@ -26,7 +28,7 @@ uuid = { version = "1", features = ["v4"] }
 # cargo add tokio --features sync,time
 [dev-dependencies]
 tracing-test = "0.2"
-derive_more = { version = "1", features = ["display", "try_into", "try_from", "from"] }
+derive_more = { version = "2", features = ["display", "try_into", "try_from", "from"] }
 
 [lints.clippy]
 module_name_repetitions = "allow"

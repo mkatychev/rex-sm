@@ -139,7 +139,7 @@ pub struct StreamReceiver<'a, T> {
     awake: Option<Arc<AtomicBool>>,
 }
 
-impl<'a, T> Stream for StreamReceiver<'a, T> {
+impl<T> Stream for StreamReceiver<'_, T> {
     type Item = T;
 
     fn poll_next(mut self: Pin<&mut Self>, ctx: &mut Context) -> Poll<Option<Self::Item>> {
@@ -168,7 +168,7 @@ impl<'a, T> Stream for StreamReceiver<'a, T> {
     }
 }
 
-impl<'a, T> Drop for StreamReceiver<'a, T> {
+impl<T> Drop for StreamReceiver<'_, T> {
     // if a stream gets dropped, notify next receiver in queue
     fn drop(&mut self) {
         let awake = self.awake.take().map(|w| w.load(Ordering::Relaxed));
